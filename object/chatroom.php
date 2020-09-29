@@ -1,0 +1,75 @@
+<?php
+class chatroom{
+ 
+    // database connection and table name
+    private $conn;
+    private $table_name = "chatrooms";
+ 
+    // object properties
+    public $chatroom_id;
+    public $user_id;
+    public $nick_name;
+    public $role_id;
+    public $role_name;
+    public $habbit_id;
+    public $habbit_name;
+    public $habbit_status;  //進行中、暫停中
+    public $signed_times;
+    public $original_intention; //提醒時間 00:00:00
+    public $goodnees; //完成次數 default=0
+    public $badnees;  //建立時間 timesteamps
+    public $created_at;  //角色照片
+    public $updated_at; //習慣分類ID
+
+    
+    // constructor with $db as database connection
+    public function __construct($db){
+        $this->conn = $db;
+    }
+
+    function readChatRoom(){
+    
+        // select all query
+        $query = "SELECT * FROM chatrooms ";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
+
+    function selectChatroomId(){
+    
+        // select all query
+        $query="SELECT * FROM `chatRooms` WHERE user_id='$_POST[user_id]' ";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
+
+    function readCompletion(){
+    
+        // select all query
+        $query="SELECT * FROM `chatRooms` WHERE user_id='$_POST[user_id]' AND habbit_status='養成中' ";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
+}
+?>
