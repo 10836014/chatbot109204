@@ -1,6 +1,6 @@
 <?php
      
-        $con = mysqli_connect("us-cdbr-east-02.cleardb.com","bbb9298efa9b93","5f62769a");
+        $con = mysqli_connect("chatbot","root","");
 
         if (!$con){
             die('Could not connect: ' . mysql_error());
