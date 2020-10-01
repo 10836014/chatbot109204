@@ -36,9 +36,9 @@
             extract($row);
     
             $chatroom_item=array(
-                "userID" => $userID,
-                "chatRoomID" => $chatRoomID,
-                "habbitStatus" =>$habbitStatus,
+                "user_id" => $user_id,
+                "chatroom_id" => $chatroom_id,
+                "habbit_status" =>$habbit_status,
                 "completion" => $completion
             );
 
@@ -51,8 +51,8 @@
     
     else{
         echo json_encode(
-            array("message" => "No products found.")
+            array("message" => "該使用者沒有養成中的習慣 habbit_status為養成中")
         );
-        mysql_close($chatroom);
+        mysqli_close($chatroom);
     }
 ?>

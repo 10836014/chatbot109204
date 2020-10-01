@@ -57,6 +57,6 @@
         echo json_encode(
             array("message" => "No users found.")
         );
-        mysql_close($user);
+        mysqli_close($user);
     }
 ?>

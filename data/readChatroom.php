@@ -65,6 +65,6 @@
         echo json_encode(
             array("message" => "No chatrooms found.")
         );
-        mysql_close($chatroom);
+        mysqli_close($chatroom);
     }
 ?>

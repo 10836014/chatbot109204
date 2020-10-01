@@ -35,17 +35,22 @@
             extract($row);
     
             $chatroom_item=array(
-                "userID" => $userID,
-                "chatRoomID" => $chatRoomID,
-                "role" => $role,
-                "roleName" => $roleName,
-                "habbitName" =>$habbitName,
-                "habbitContent" =>$habbitContent,
-                "habbitStatus" =>$habbitStatus
-                /*"completion" => $completion,
+                "chatroom_id" => $chatroom_id,
+                "user_id" => $user_id,
+                "nick_name" => $nick_name,
+                "role_id" => $role_id,
+                "role_name" => $role_name,
+                "role_photo" => $role_photo,
+                "habbit_id" =>$habbit_id,
+                "habbit_name" =>$habbit_name,
+                "habbit_status" =>$habbit_status,
+                "signed_time" =>$signed_time,
+                "completion" => $completion,
+                "original_intention" => $original_intention,
+                "goodnees" => $goodnees,
+                "badnees" => $badnees,
                 "created_at" => $created_at,
-                "rolePhoto" => $rolePhoto,
-                "categoryID" => $categoryID*/
+                "updated_at" => $updated_at
             );
 
             array_push($chatrooms_arr["records"], $chatroom_item);
@@ -60,8 +65,8 @@
     
     else{
         echo json_encode(
-            array("message" => "No products found.")
+            array("message" => "No chatrooms found.")
         );
-        mysql_close($chatroom);
+        mysqli_close($chatroom);
     }
 ?>

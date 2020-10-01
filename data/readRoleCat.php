@@ -1,11 +1,12 @@
 <?php
     // required headers
+    // 取得所有角色清單
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
     
     // include database and object files
     include_once '../config/database.php';
-    include_once '../object/role_Cat.php';
+    include_once '../object/roleCat.php';
     
     // instantiate database and product object
     $database = new Database();
@@ -25,19 +26,14 @@
         $categories_arr=array();
         $categories_arr["records"]=array();
     
-        // retrieve our table contents
-        // fetch() is faster than fetchAll()
-        // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            // extract row
-            // this will make $row['name'] to
-            // just $name only
             extract($row);
     
             $category_item=array(
-                "role_id" => $categoryID,
+                "role_id" => $role_id,
                 "role_cat_name" => $role_cat_name );
 
+            // array_push($categories_arr, $category_item);
             array_push($categories_arr["records"], $category_item);
         }
 
@@ -52,6 +48,6 @@
         echo json_encode(
             array("message" => "No roleCat found.")
         );
-        mysql_close($category);
+        mysqli_close($category);
     }
 ?>

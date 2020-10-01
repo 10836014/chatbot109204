@@ -5,7 +5,7 @@
     
     // include database and object files
     include_once '../config/database.php';
-    include_once '../object/habbit_cat.php';
+    include_once '../object/habbitCat.php';
     
     // instantiate database and product object
     $database = new Database();
@@ -15,7 +15,7 @@
     $category = new habbitCat($db);
     
     // query products //read()是在object的functionName
-    $stmt = $category->read();
+    $stmt = $category->readHabbitCat();
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
@@ -52,6 +52,6 @@
         echo json_encode(
             array("message" => "No habbitCat found.")
         );
-        mysql_close($category);
+        mysqli_close($category);
     }
 ?>

@@ -55,6 +55,6 @@
         echo json_encode(
             array("message" => "No posts found.")
         );
-        mysql_close($post);
+        mysqli_close($post);
     }
 ?>

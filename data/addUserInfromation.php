@@ -1,27 +1,27 @@
 <?php
      
-        $con = mysqli_connect("chatbot","root","");
+    header("Content-Type: application/json; charset=UTF-8");
+    $con = mysqli_connect("localhost","root","");
 
-        if (!$con){
-            die('Could not connect: ' . mysql_error());
-            return json_encode(array('rusult' => '1', 'data' => '伺服器連接失敗'));
-        }
+    if (!$con){
+        die('Could not connect: ' . mysql_error());
+        return json_encode(array('rusult' => '1', 'data' => '伺服器連接失敗'));
+    }
 
-        $selected = mysqli_select_db($con, "heroku_4b25007c650d0dd") ;
-        //mysql_select_db("project", $con);
+    $selected = mysqli_select_db($con, "chatbot");
+ 
 
-        $sql="UPDATE user SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
-        WHERE userID='$_POST[userID]'";
+    $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
+    WHERE user_id='$_POST[user_id]'";
 
-        mysqli_query($con,$sql);
+    mysqli_query($con,$sql);
 
-        if (!mysqli_query($con,$sql))
-        {
+    if (!mysqli_query($con,$sql)){
         //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('rusult' => '1', 'data' => '失敗', 'error' => mysqli_error($con)));
         echo ('Error: ' . mysqli_error($con));
-        }else{
+    }else{
         echo json_encode(array('rusult' => '0', 'data' => '成功'));
-        }
-        mysqli_close($con)
+    }
+    mysqli_close($con);
 ?>

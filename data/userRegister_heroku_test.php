@@ -1,17 +1,8 @@
 <?php
     // header寫法無效
-     header("Content-Type: application/json; charset=UTF-8");
-    <head>
+    header("Content-Type: application/json; charset=UTF-8");
 
-    <meta charset="utf-8">
-
-    </head>
-
-    @font-face {
-        font-family: 'OpenSans';
-        src: url(data:font/truetype;charset=utf-8;base64,AAEAAAATAQA...
-    }
-     $con = mysqli_connect("us-cdbr-east-02.cleardb.com","bbb9298efa9b93","5f62769a");
+    $con = mysqli_connect("us-cdbr-east-02.cleardb.com","bbb9298efa9b93","5f62769a");
 
     // mysqli_query寫法無效
      mysqli_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'", $con);
