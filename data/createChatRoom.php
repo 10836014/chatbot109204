@@ -21,13 +21,15 @@
         '$_POST[habbit_name]', '養成中', '$_POST[signed_time]',
         '$_POST[original_intention]','$_POST[goodnees]',
         '$_POST[badnees]'); ";
+    
 
     if (!mysqli_query($con,$sql)){
     //die 'Error: ' . mysqli_error($con);
     echo json_encode(array('result' => '1', 'data' => '添加失敗', 'error' => mysqli_error($con)));
     echo ('Error: ' . mysqli_error($con));
     }else{
-    echo json_encode(array('result' => '0', 'data' => '添加成功'));
+    // echo json_encode(array('result' => '0', 'data' => '添加成功'));
+    echo json_encode(array('result' => '0', 'data' => '添加成功', 'return chatroom_id: ' => $con->insert_id));
     }
     mysqli_close($con);
 ?>

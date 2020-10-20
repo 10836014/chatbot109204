@@ -10,16 +10,16 @@
 
     $selected = mysqli_select_db($con, "chatbot") ;
 
-    $sql="UPDATE chatrooms SET habbit_status='暫停中'
-        WHERE user_id='$_POST[user_id]' AND chatroom_id='$_POST[chatroom_id]' AND habbit_status='養成中'";
+    $sql="UPDATE chatrooms SET habbit_status='養成中'
+        WHERE user_id='$_POST[user_id]' AND chatroom_id='$_POST[chatroom_id]' AND habbit_status='暫停中'";
 
     mysqli_query($con,$sql);
 
     if (!mysqli_query($con,$sql)){
-        echo json_encode(array('result' => '1', 'data' => '修改習慣狀態為\'暫停中\'失敗', 'error' => mysqli_error($con)));
+        echo json_encode(array('result' => '1', 'data' => '修改習慣狀態為\'養成中\'失敗', 'error' => mysqli_error($con)));
         echo ('Error: ' . mysqli_error($con));
     }else{
-        echo json_encode(array('result' => '0', 'data' => '修改習慣狀態為\'暫停中\'成功'));
+        echo json_encode(array('result' => '0', 'data' => '修改習慣狀態為\'養成中\'成功'));
     }
     mysqli_close($con);
 ?>
