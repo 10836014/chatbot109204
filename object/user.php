@@ -12,6 +12,8 @@ class User{
     public $birthday;
     public $mail;
     public $userPhoto;
+    public $created_at;
+    public $updated_at;
     
     // constructor with $db as database connection
     public function __construct($db){
