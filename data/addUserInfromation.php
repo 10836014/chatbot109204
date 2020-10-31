@@ -23,14 +23,12 @@
 
     // echo "Affected rows: " . $con -> affected_rows ;
     $result = ($con -> affected_rows);
-    $colum = ($con -> affected_rows <= 0);
-    // var_dump($colum);
-    var_dump($result);
 
     if ($result !== 0){
     // if ($colum === true){
         //die 'Error: ' . mysqli_error($con);
-        echo json_encode(array('result' => '0', 'data' => "成功，修改到的資料數量 :" . $con -> affected_rows));
+        echo json_encode(array('result' => '0',
+        'data' => "成功，修改到的資料數量 :" . $con -> affected_rows));
         echo ('Error: ' . mysqli_error($con));
     }
     else if ($result == 0){
@@ -40,8 +38,14 @@
         'message 1'=>'可能是修改資料相同，沒變更到',
         'message 2'=>'或是查無此id'));
         echo ('Error: ' . mysqli_error($con));
-    }else{
-        echo json_encode(array('result' => '0', 'data' => "傳入使用者生日、性別成功"));
+    }else if (!mysqli_query($con,$sql)){
+        echo json_encode(array('result' => '1',
+        'data' => '添加失敗',
+        'error' => mysqli_error($con)));
+        }
+    else{
+        echo json_encode(array('result' => '0',
+        'data' => "傳入使用者生日、性別成功"));
     }
     mysqli_close($con);
 ?>
