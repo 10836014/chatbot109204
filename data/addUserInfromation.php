@@ -1,7 +1,7 @@
 <?php
      
     header("Content-Type: application/json; charset=UTF-8");
-    $con = mysqli_connect("localhost","root","");
+    $con = mysqli_connect("localhost","root","", "chatbot");
 
     if (!$con){
         die('Could not connect: ' . mysql_error());
@@ -14,16 +14,12 @@
     $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
     WHERE user_id='$_POST[user_id]'";
 
-    // $num=mysqli_num_rows($result); // 適用於select
-    // $num=mysqli_affected_rows($result); // INSERT、UPDATE、DELETE
-    // var_dump(mysqli_affected_rows(mysqli_query($con,$sql)));
-
+    // 取得影響資料數量 $result
     $con -> query("UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
     WHERE user_id='$_POST[user_id]'");
-
-    // echo "Affected rows: " . $con -> affected_rows ;
     $result = ($con -> affected_rows);
 
+    // 回傳存取成功或失敗
     if ($result !== 0){
     // if ($colum === true){
         //die 'Error: ' . mysqli_error($con);
