@@ -32,5 +32,21 @@ class User{
     
         return $stmt;
     }
+
+    function getUserName(){
+    
+        // select all query
+        $query="SELECT * FROM `users` WHERE user_id='$_POST[user_id]'";
+        // $query="SELECT `user_name` FROM `users` WHERE user_id='$_POST[user_id]'";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
 }
 ?>
