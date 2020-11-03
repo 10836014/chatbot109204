@@ -22,29 +22,17 @@
     // check if more than 0 record found
     if($num>0){
     
-        // products array
-        $users_arr=array();
-        $users_arr["records"]=array();
-    
-        // retrieve our table contents
-        // fetch() is faster than fetchAll()
-        // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
+        $user_item=array();
+
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            // extract row
-            // this will make $row['name'] to
-            // just $name only
             extract($row);
     
             $user_item=array(
                 "user_id" => $user_id,
                 "user_name" => $user_name
             );
-
-            array_push($users_arr["records"], $user_item);
         }
-
-        echo json_encode($users_arr);
-
+        echo json_encode($user_item);
     }
     
     else{
