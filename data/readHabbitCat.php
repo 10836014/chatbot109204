@@ -36,7 +36,8 @@
     
             $category_item=array(
                 "habbit_id" => $habbit_id,
-                "habbit_cat_name" => $habbit_cat_name );
+                "habbit_cat_name" => $habbit_cat_name, 
+                "created_at" => $created_at );
 
             array_push($categories_arr["records"], $category_item);
         }
