@@ -10,16 +10,16 @@
 
     $selected = mysqli_select_db($con, "chatbot");
 
-    $sql="UPDATE posts SET likes='$_POST[likes]'
-    WHERE user_id='$_POST[user_id]' AND post_id='$_POST[user_id]'";
+    $sql = "INSERT INTO likes (user_id, post_id)
+    VALUES ('$_POST[user_id]', '$_POST[post_id]')";
 
-    mysqli_query($con,$sql);
+    // mysqli_query($con,$sql);
 
     if (!mysqli_query($con,$sql)){
     //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('result' => '1', 'data' => '按讚失敗', 'error' => mysqli_error($con)));
     }else{
-        echo json_encode(array('result' => '0', 'data' => '按讚成功'));
+        echo json_encode(array('result' => '0', 'data' => '按讚成功', 'return like_id: ' => $con->insert_id));
     }
     mysqli_close($con);
 ?>
