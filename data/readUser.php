@@ -40,7 +40,7 @@
                 "gender" => $gender,
                 "birthday" => $birthday,
                 "mail" => $mail,
-                "user_photo" => $userPhoto,
+                // "user_photo" => $userPhoto,
                 "created_at" => $created_at,
                 "updated_at" => $updated_at
 
