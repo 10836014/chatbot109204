@@ -47,8 +47,8 @@
                 "signed_time" =>$signed_time,
                 "completion" => $completion,
                 "original_intention" => $original_intention,
-                "goodnees" => $goodnees,
-                "badnees" => $badnees,
+                "goodness" => $goodness,
+                "badness" => $badness,
                 "created_at" => $created_at,
                 "updated_at" => $updated_at
             );

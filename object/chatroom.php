@@ -16,8 +16,8 @@ class chatroom{
     public $habbit_status;  //進行中、暫停中
     public $signed_times;
     public $original_intention; //提醒時間 00:00:00
-    public $goodnees; //完成次數 default=0
-    public $badnees;  //建立時間 timesteamps
+    public $goodness; //完成次數 default=0
+    public $badness;  //建立時間 timesteamps
     public $created_at;  //角色照片
     public $updated_at; //習慣分類ID
 

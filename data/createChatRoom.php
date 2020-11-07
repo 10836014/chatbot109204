@@ -13,14 +13,14 @@
     $sql="INSERT INTO chatrooms (user_id, nick_name, role_id,
                             role_name, role_photo, habbit_id,
                             habbit_name, habbit_status, signed_time,
-                            original_intention, goodnees,
-                            badnees)
+                            original_intention, goodness,
+                            badness)
     VALUES 
         ('$_POST[user_id]','$_POST[nick_name]', '$_POST[role_id]', 
         '$_POST[role_name]', '$_POST[role_photo]', '$_POST[habbit_id]',
         '$_POST[habbit_name]', '養成中', '$_POST[signed_time]',
-        '$_POST[original_intention]','$_POST[goodnees]',
-        '$_POST[badnees]'); ";
+        '$_POST[original_intention]','$_POST[goodness]',
+        '$_POST[badness]'); ";
     
 
     if (!mysqli_query($con,$sql)){

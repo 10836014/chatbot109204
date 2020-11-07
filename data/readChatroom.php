@@ -45,8 +45,8 @@
                 "habbit_status" => $habbit_status, //進行中、暫停中
                 "signed_times" => $signed_times,
                 "original_intention" => $original_intention, //提醒時間 00:00:00
-                "goodnees" => $goodnees, //完成次數 default=0
-                "badnees" => $badnees,  //建立時間 timesteamps
+                "goodness" => $goodness, //完成次數 default=0
+                "badness" => $badness,  //建立時間 timesteamps
                 "created_at" => $created_at, //角色照片
                 "updated_at" => $updated_at //習慣分類ID
             );
