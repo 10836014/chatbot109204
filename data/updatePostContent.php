@@ -10,7 +10,7 @@
 
     $selected = mysqli_select_db($con, "chatbot") ;
 
-    $sql="UPDATE posts SET content='$_POST[content]'
+    $sql="UPDATE posts SET content='$_POST[content]' , updated_at = NOW()
     WHERE user_id='$_POST[user_id]' and post_id='$_POST[post_id]'";
 
     mysqli_query($con,$sql);
