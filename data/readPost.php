@@ -38,7 +38,7 @@
             $post_item=array(
                 "post_id" => $post_id,
                 "user_id" => $user_id,
-                "title" => $title,
+                // "title" => $title,
                 "content" => $content,
                 "created_at" => $created_at,
                 "updated_at" => $updated_at

@@ -10,14 +10,13 @@
 
     $selected = mysqli_select_db($con, "chatbot");
 
-    $sql="INSERT INTO posts (user_id, title, content)
+    $sql="INSERT INTO posts (user_id, habbit_id, content, created_at, updated_at)
              VALUES 
-         ('$_POST[user_id]','$_POST[title]', '$_POST[content]')";
+         ('$_POST[user_id]', '$_POST[habbit_id]', '$_POST[content]', NOW(), NOW())";
 
      if (!mysqli_query($con,$sql)){
         //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('result' => '1', 'data' => '添加失敗', 'error' => mysqli_error($con)));
-        echo ('Error: ' . mysqli_error($con));
      }else{
         echo json_encode(array('result' => '0', 'data' => '添加成功'));
      }
