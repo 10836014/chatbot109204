@@ -63,11 +63,13 @@ class Post{
         FROM posts AS p 
         INNER JOIN users AS u  
         INNER JOIN habbit_cat AS h 
-        INNER JOIN likes AS l
-        ON p.user_id = u.user_id 
+        LEFT OUTER JOIN likes AS l
+        ON l.post_id = p.post_id 
         AND p.habbit_id = h.habbit_id 
-        AND l.post_id = p.post_id
+        AND p.user_id = u.user_id
         GROUP BY p.post_id ";
+
+        // 用 LEFT OUTER JOIN 可以顯示出likeNum是0的貼文
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
