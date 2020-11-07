@@ -11,6 +11,9 @@
     $selected = mysqli_select_db($con, "chatbot");
  
 
+    // $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]', updated_at=NOW()
+    // WHERE user_id='$_POST[user_id]'";
+
     $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
     WHERE user_id='$_POST[user_id]'";
 
@@ -25,7 +28,6 @@
         //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('result' => '0',
         'data' => "成功，修改到的資料數量 :" . $con -> affected_rows));
-        echo ('Error: ' . mysqli_error($con));
     }
     else if ($result == 0){
         //die 'Error: ' . mysqli_error($con);
@@ -33,7 +35,6 @@
         'data' => "失敗，修改到的資料數量為零 :" . $con -> affected_rows, 
         'message 1'=>'可能是修改資料相同，沒變更到',
         'message 2'=>'或是查無此id'));
-        echo ('Error: ' . mysqli_error($con));
     }else if (!mysqli_query($con,$sql)){
         echo json_encode(array('result' => '1',
         'data' => '添加失敗',

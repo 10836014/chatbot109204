@@ -18,7 +18,6 @@
     if (!mysqli_query($con,$sql)){
     //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('result' => '1', 'data' => '修改貼文內容失敗', 'error' => mysqli_error($con)));
-        echo ('Error: ' . mysqli_error($con));
     }else{
         echo json_encode(array('result' => '0', 'data' => '修改貼文內容成功'));
     }

@@ -10,6 +10,7 @@
     }
 
     $selected = mysqli_select_db($con, "chatbot");   
+    echo "hello world";
 
     // Check if the user entered an image
     if ($_FILES['imagefile']['name'] != '') {
@@ -24,7 +25,7 @@
             // $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
             // WHERE user_id='$_POST[user_id]'";
 
-            $query  = "UPDATE yourtable SET image_type='$image_type', image='$image' WHERE ...";
+            // $query  = "UPDATE yourtable SET image_type='$image_type', image='$image' WHERE ...";
             $result = mysql_query($query);
             if ($result) {
                echo 'Image scaled and uploaded';

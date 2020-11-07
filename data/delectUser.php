@@ -25,7 +25,6 @@
     if (!mysqli_query($con,$sql_4)){
     //die 'Error: ' . mysqli_error($con);
         echo json_encode(array('result' => '1', 'data' => '刪除使用者失敗', 'error' => mysqli_error($con)));
-        echo ('Error: ' . mysqli_error($con));
     }else{
         echo json_encode(array('result' => '0', 'data' => '刪除使用者成功，所有貼文、按讚紀錄都一起刪除了'));
     }

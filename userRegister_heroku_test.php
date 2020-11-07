@@ -17,15 +17,14 @@
 
      $selected = mysqli_select_db($con, "heroku_4b25007c650d0dd") ;
 
-     $sql="INSERT INTO user (userID, userName, email)
+     $sql="INSERT INTO user (userID, userName, email, created_at, updated_at)
              VALUES 
-         ('$_POST[userID]','$_POST[userName]', '$_POST[email]')";
+         ('$_POST[userID]','$_POST[userName]', '$_POST[email]'), NOW(), NOW()";
 
      if (!mysqli_query($con,$sql))
      {
      //die 'Error: ' . mysqli_error($con);
      echo json_encode(array('result' => '1', 'data' => '添加失敗', 'error' => mysqli_error($con), 'data' => $sql));
-     echo ('Error: ' . mysqli_error($con));
      }else{
      echo json_encode(array('result' => '0', 'data' => '添加成功'));
      }

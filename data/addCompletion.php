@@ -19,7 +19,6 @@
     {
     //die 'Error: ' . mysqli_error($con);
     echo json_encode(array('result' => '1', 'data' => '修改習慣完成次數失敗', 'error' => mysqli_error($con)));
-    echo ('Error: ' . mysqli_error($con));
     }else{
     echo json_encode(array('result' => '0', 'data' => '修改習慣完成次數成功'));
     }

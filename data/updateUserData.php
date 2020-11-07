@@ -10,7 +10,7 @@
 
     $selected = mysqli_select_db($con, "chatbot") ;
 
-    $sql="UPDATE users SET birthday='$_POST[birthday]' , mail='$_POST[mail]' 
+    $sql="UPDATE users SET birthday='$_POST[birthday]' , mail='$_POST[mail]'
     WHERE user_id='$_POST[user_id]' ";
 
     mysqli_query($con,$sql);
@@ -19,7 +19,6 @@
     {
     //die 'Error: ' . mysqli_error($con);
     echo json_encode(array('result' => '1', 'data' => '修改使用者資料失敗', 'error' => mysqli_error($con)));
-    echo ('Error: ' . mysqli_error($con));
     }else{
     echo json_encode(array('result' => '0', 'data' => '修改使用者資料成功'));
     }
