@@ -21,7 +21,11 @@ class Post{
     function readPost(){
     
         // select all query
-        $query = "SELECT * FROM posts";
+        // $query = "SELECT * FROM posts";
+
+        $query="SELECT p.*, u.user_name
+        FROM posts AS p INNER JOIN users AS u
+        ON p.user_id = u.user_id";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
