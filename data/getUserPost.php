@@ -12,19 +12,18 @@
     $db = $database->getConnection();
     
     // initialize object
-    $post = new Post($db);
+    $chatrooms = new Post($db);
     
     // query products
-    //---呼叫的function記得改---
-    $stmt = $post->readPost();
+    $stmt = $chatrooms->getUserPost();
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
     if($num>0){
     
         // products array
-        $posts_arr=array();
-        $posts_arr["records"]=array();
+        $chatrooms_arr=array();
+        $chatrooms_arr["records"]=array();
     
         // retrieve our table contents
         // fetch() is faster than fetchAll()
@@ -35,28 +34,30 @@
             // just $name only
             extract($row);
     
-            $post_item=array(
+            $chatroom_item=array(
                 "post_id" => $post_id,
-                "habbit_cat_name" => $post_id,
+                "habbit_cat_name" => $habbit_cat_name,
                 "user_id" => $user_id,
                 "user_name" => $user_name,
-                // "title" => $title,
                 "content" => $content,
                 "created_at" => $created_at,
                 "updated_at" => $updated_at
             );
 
-            array_push($posts_arr["records"], $post_item);
+            array_push($chatrooms_arr["records"], $chatroom_item);
         }
 
-        echo json_encode($posts_arr);
+        //不要顯示重複的值
+        $chatrooms_arr=array_unique($chatrooms_arr);
+        
+        echo json_encode($chatrooms_arr);
 
     }
     
     else{
         echo json_encode(
-            array("message" => "No posts found.")
+            array("message" => "No chatrooms found.")
         );
-        mysqli_close($post);
+        mysqli_close($chatroom);
     }
 ?>
