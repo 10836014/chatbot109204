@@ -37,7 +37,7 @@
     
             $post_item=array(
                 "post_id" => $post_id,
-                "habbit_cat_name" => $post_id,
+                "habbit_cat_name" => $habbit_cat_name,
                 "user_id" => $user_id,
                 "user_name" => $user_name,
                 // "title" => $title,
