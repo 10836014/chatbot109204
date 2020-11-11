@@ -15,6 +15,8 @@ class chatroom{
     public $habbit_name;
     public $habbit_status;  //進行中、暫停中
     public $signed_time;
+    public $completion;
+    public $max_completion;
     public $original_intention; //提醒時間 00:00:00
     public $goodness; //完成次數 default=0
     public $badness;  //建立時間 timesteamps
@@ -72,7 +74,7 @@ class chatroom{
         return $stmt;
     }
 
-    function getUserChatrooms(){
+    function getUserHistory(){
     
         // select all query
         $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";

@@ -43,6 +43,8 @@ if ($num > 0) {
             'habbit_name' => $habbit_name,
             'habbit_status' => $habbit_status, //進行中、暫停中
             'signed_time' => $signed_time,
+            'completion' => $completion,
+            'max_completion' => $max_completion,
             'original_intention' => $original_intention, //提醒時間 00:00:00
             'goodness' => $goodness, //完成次數 default=0
             'badness' => $badness, //建立時間 timesteamps
