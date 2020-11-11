@@ -60,10 +60,11 @@ class Post
         // select all query
         // $query = "SELECT * FROM posts";
 
-        $query = "SELECT p.*, u.user_name, h.habbit_id, h.habbit_cat_name, count(l.post_id) AS likesNum
+        $query = "SELECT p.*, u.user_name, p.habbit_id, habbit_cat_name, count(l.post_id) AS likesNum
         FROM posts AS p 
         INNER JOIN users AS u  
-        INNER JOIN habbit_cat AS h 
+        INNER JOIN habbit_cat AS h
+        ON p.habbit_id = h.habbit_id  
         LEFT OUTER JOIN likes AS l
         ON l.post_id = p.post_id 
         AND p.habbit_id = h.habbit_id 
