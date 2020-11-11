@@ -14,7 +14,7 @@ class chatroom{
     public $habbit_id;
     public $habbit_name;
     public $habbit_status;  //進行中、暫停中
-    public $signed_times;
+    public $signed_time;
     public $original_intention; //提醒時間 00:00:00
     public $goodness; //完成次數 default=0
     public $badness;  //建立時間 timesteamps
@@ -45,7 +45,7 @@ class chatroom{
     function selectChatroomId(){
     
         // select all query
-        $query="SELECT * FROM `chatRooms` WHERE user_id='$_POST[user_id]' ";
+        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -60,7 +60,22 @@ class chatroom{
     function readCompletion(){
     
         // select all query
-        $query="SELECT * FROM `chatRooms` WHERE user_id='$_POST[user_id]' AND habbit_status='養成中' ";
+        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' AND habbit_status='養成中' ";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
+
+    function getUserChatrooms(){
+    
+        // select all query
+        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);

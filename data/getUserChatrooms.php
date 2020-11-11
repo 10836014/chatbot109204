@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $chatrooms = new Chatroom($db);
 
 // query products
-$stmt = $chatrooms->readChatRoom();
+$stmt = $chatrooms->getUserChatrooms();
 $num = $stmt->rowCount();
 
 // check if more than 0 record found
