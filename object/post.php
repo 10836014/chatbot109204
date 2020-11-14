@@ -63,12 +63,11 @@ class Post
         $query = "SELECT p.*, u.user_name, p.habbit_id, habbit_cat_name, count(l.post_id) AS likesNum
         FROM posts AS p 
         INNER JOIN users AS u  
+        ON p.user_id = u.user_id
         INNER JOIN habbit_cat AS h
-        ON p.habbit_id = h.habbit_id  
+        ON p.habbit_id = h.habbit_id
         LEFT OUTER JOIN likes AS l
         ON l.post_id = p.post_id 
-        AND p.habbit_id = h.habbit_id 
-        AND p.user_id = u.user_id
         GROUP BY p.post_id
         ORDER BY p.created_at DESC";
 
@@ -87,12 +86,12 @@ class Post
     {
         $query = "SELECT p.*, u.user_name, h.habbit_id, h.habbit_cat_name, count(l.post_id) AS likesNum
         FROM posts AS p 
-        INNER JOIN users AS u  
-        INNER JOIN habbit_cat AS h 
         LEFT OUTER JOIN likes AS l
         ON l.post_id = p.post_id 
-        AND p.habbit_id = h.habbit_id 
-        AND p.user_id = u.user_id
+        INNER JOIN habbit_cat AS h
+        ON p.habbit_id = h.habbit_id
+        INNER JOIN users AS u  
+        ON p.user_id = u.user_id
         WHERE p.habbit_id= $_POST[habbit_id] 
         GROUP BY p.post_id 
         ORDER BY p.created_at DESC";
