@@ -13,6 +13,7 @@ class chatroom{
     public $role_name;
     public $habbit_id;
     public $habbit_name;
+    public $habbit_photo;
     public $habbit_status;  //進行中、暫停中
     public $signed_time;
     public $completion;

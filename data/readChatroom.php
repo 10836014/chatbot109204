@@ -39,6 +39,7 @@ if ($num > 0) {
             'nick_name' => $nick_name,
             'role_id' => $role_id,
             'role_name' => $role_name,
+            'role_photo' => 'C:/xampp/htdocs/chatbot109204/upload/'.$role_photo,
             'habbit_id' => $habbit_id,
             'habbit_name' => $habbit_name,
             'habbit_status' => $habbit_status, //進行中、暫停中
