@@ -1,7 +1,6 @@
 <?php
-// header("Content-Type: application/json; charset=UTF-8");
-header('Content-Type: image/jpeg');
 
+header('Content-Type: application/json; charset=UTF-8');
 $con = mysqli_connect('localhost', 'root', '');
 
 if (!$con) {
@@ -11,73 +10,39 @@ if (!$con) {
 
 $selected = mysqli_select_db($con, 'chatbot');
 
-$file = $_FILES['file']; //得到传输的数据
-if (isset($_POST['but_upload'])) {
-    $name = $_FILES['file']['name'];
-    $target_dir = './upload/';
-    $target_file = $target_dir . basename($_FILES['file']['name']);
+$con = new mysqli('localhost', 'root', '', 'chatbot');
+$number = "$_POST[number]";
+$targetDir = "C:/xampp/htdocs/chatbot109204/upload/"; //搬移路徑
+// $fileName = $chatroom_id . "_" . basename($_FILES["role_photo"]["name"]); //檔名
+$fileName = $number . "_test.jpg" ; //檔名
+$dest = $targetDir . $fileName;
+$filePath = $_FILES["image"]["tmp_name"]; //暫存路徑
+$fileType = $_FILES["image"]["type"];
 
-    // Select file type
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+if(!empty($fileName)){
 
-    // Valid file extensions
-    $extensions_arr = ['jpg', 'jpeg', 'png', 'gif'];
+    $allowTypes = array('image/jpg','image/png','image/jpeg');
+    if (file_exists('D:/xampp/htdocs/chatbot109204/upload/' . $fileName)){
+        echo json_encode(array('result' => '1', 'data' => '檔案已存在。', 'error' => mysqli_error($con)));
+        
+    }else if(in_array($fileType, $allowTypes)){
+        // Upload file to server
+        if(move_uploaded_file($filePath, $dest)){
+            // Insert image file name into database
+            $insert = $con->query("INSERT INTO test_image (number, image) VALUES ('$_POST[number]', '".$fileName."') ");
 
-    // Check extension
-    if (in_array($imageFileType, $extensions_arr)) {
-        // Insert record
-        $query = "INSERT INTO users (user_id, user_name, mail, user_photo)
-        VALUES ('$_POST[user_id]','$_POST[user_name]', '$_POST[mail]')";
-        mysqli_query($con, $query);
-
-        // Upload file
-        move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
+            if($insert){
+                echo json_encode(array('result' => '0', 'data' => '添加成功'));
+            }else{
+                echo json_encode(array('result' => '1', 'data' => '添加失敗', 'error' => mysqli_error($con)));
+            } 
+        }
+    }else{
+        // var_dump($fileType, $allowTypes);
+            echo json_encode(array('result' => '1', 'data' => '只能存 JPG, JPEG, PNG, GIF, & PDF格式的照片', 'error' => mysqli_error($con)));
     }
 }
-// //得到文件名称
-// var_dump($file);
 
-// $name = $file['name'];
-// $type = strtolower(substr($name, strrpos($name, '.') + 1)); //得到文件类型，并且都转化成小写
-// $allow_type = ['jpg', 'jpeg', 'gif', 'png']; //定义允许上传的类型
-// //判断文件类型是否被允许上传
-// if (!in_array($type, $allow_type)) {
-//     //如果不被允许，则直接停止程序运行
-//     return;
-// }
-// //判断是否是通过HTTP POST上传的
-// if (!is_uploaded_file($file['tmp_name'])) {
-//     //如果不是通过HTTP POST上传的
-//     return;
-// }
-// $upload_path = './upload/'; //上传文件的存放路径
-// //开始移动文件到相应的文件夹
-// if (move_uploaded_file($file['tmp_name'], $upload_path . $file['name'])) {
-//     echo 'Successfully!';
-// } else {
-//     echo 'Failed!';
-// }
 
-// Check if the user entered an image
-// if ($_FILES['imagefile']['name'] != '') {
-//     $image = scaleImageFileToBlob($_FILES['imagefile']['tmp_name']);
-
-//     if ($image == '') {
-//         echo 'Image type not supported';
-//     } else {
-//         $image_type = $_FILES['imagefile']['type'];
-//         $image = addslashes($image);
-
-//         // $sql="UPDATE users SET birthday='$_POST[birthday]',  gender='$_POST[gender]'
-//         // WHERE user_id='$_POST[user_id]'";
-
-//         // $query  = "UPDATE yourtable SET image_type='$image_type', image='$image' WHERE ...";
-//         $result = mysql_query($query);
-//         if ($result) {
-//            echo 'Image scaled and uploaded';
-//          } else {
-//            echo 'Error running the query';
-//          }
-//     }
-// } -->
+mysqli_close($con);
 ?>
