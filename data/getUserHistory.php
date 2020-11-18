@@ -40,6 +40,9 @@ if ($num > 0) {
             'habbit_status' => $habbit_status, //進行中、暫停中
             'completion' => $completion,
             'max_completion' => $max_completion,
+            'original_intention'=> $original_intention,
+            'goodness' => $goodness,
+            'badness' => $badness,
             'created_at' => $created_at, //角色照片
             'updated_at' => $updated_at, //習慣分類ID
         ];
@@ -55,4 +58,3 @@ if ($num > 0) {
     echo json_encode(['message' => 'No chatrooms found.']);
     mysqli_close($chatroom);
 }
-?>
