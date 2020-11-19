@@ -10,12 +10,12 @@ if (!$con) {
 
 $selected = mysqli_select_db($con, 'chatbot');
 
-$sql = "INSERT INTO chatrooms (user_id, nick_name, habbit_id,
+$sql = "INSERT INTO chatrooms (user_id, habbit_id,
                             habbit_name, habbit_status, signed_time,
                             original_intention, goodness,
                             badness,days)
     VALUES 
-        ('$_POST[user_id]','$_POST[nick_name]', '$_POST[habbit_id]',
+        ('$_POST[user_id]', '$_POST[habbit_id]',
         '$_POST[habbit_name]', '養成中', '$_POST[signed_time]',
         '$_POST[original_intention]','$_POST[goodness]',
         '$_POST[badness]', '$_POST[days]')";
