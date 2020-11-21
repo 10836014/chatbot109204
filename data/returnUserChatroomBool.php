@@ -24,5 +24,4 @@ if ($num > 0) {
 } else {
     echo json_encode(['message' => 'No']);
 }
-mysqli_close($chatroom);
-?>
+// mysqli_close($chatroom);

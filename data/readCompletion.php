@@ -20,7 +20,7 @@
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
-    if($num>0){
+    if ($num>0) {
     
         // products array
         $chatrooms_arr=array();
@@ -29,7 +29,7 @@
         // retrieve our table contents
         // fetch() is faster than fetchAll()
         // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // extract row
             // this will make $row['name'] to
             // just $name only
@@ -46,13 +46,9 @@
         }
 
         echo json_encode($chatrooms_arr);
-
-    }
-    
-    else{
+    } else {
         echo json_encode(
             array("message" => "該使用者沒有養成中的習慣 habbit_status為養成中")
         );
-        mysqli_close($chatroom);
+        // mysqli_close($chatroom);
     }
-?>

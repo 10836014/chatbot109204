@@ -52,6 +52,5 @@ if ($num > 0) {
     echo json_encode($posts_arr);
 } else {
     echo json_encode(['message' => 'No posts found.']);
-    mysqli_close($post);
+    // mysqli_close($post);
 }
-?>

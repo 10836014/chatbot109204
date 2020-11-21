@@ -19,7 +19,7 @@
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
-    if($num>0){
+    if ($num>0) {
     
         // products array
         $categories_arr=array();
@@ -28,7 +28,7 @@
         // retrieve our table contents
         // fetch() is faster than fetchAll()
         // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // extract row
             // this will make $row['name'] to
             // just $name only
@@ -36,7 +36,7 @@
     
             $category_item=array(
                 "habbit_id" => $habbit_id,
-                "habbit_cat_name" => $habbit_cat_name, 
+                "habbit_cat_name" => $habbit_cat_name,
                 "created_at" => $created_at );
 
             array_push($categories_arr["records"], $category_item);
@@ -46,13 +46,9 @@
         $categories_arr=array_unique($categories_arr);
         
         echo json_encode($categories_arr);
-
-    }
-    
-    else{
+    } else {
         echo json_encode(
             array("message" => "No habbitCat found.")
         );
-        mysqli_close($category);
+        // mysqli_close($category);
     }
-?>

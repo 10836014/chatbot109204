@@ -20,11 +20,10 @@
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
-    if($num>0){
-    
+    if ($num>0) {
         $user_item=array();
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
     
             $user_item=array(
@@ -33,12 +32,9 @@
             );
         }
         echo json_encode($user_item);
-    }
-    
-    else{
+    } else {
         echo json_encode(
             array("message" => "該使用者沒有養成中的習慣 habbit_status為養成中")
         );
-        mysqli_close($user);
+        // mysqli_close($user);
     }
-?>

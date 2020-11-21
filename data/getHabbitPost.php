@@ -54,6 +54,5 @@ if ($num > 0) {
     echo json_encode($chatrooms_arr);
 } else {
     echo json_encode(['message' => '該分類下沒有貼文，或是沒有此分類.']);
-    mysqli_close($chatroom);
+    // mysqli_close($chatroom);
 }
-?>

@@ -20,13 +20,13 @@
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
-    if($num>0){
+    if ($num>0) {
     
         // products array
         $categories_arr=array();
         $categories_arr["records"]=array();
     
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
     
             $category_item=array(
@@ -41,13 +41,9 @@
         $categories_arr=array_unique($categories_arr);
         
         echo json_encode($categories_arr);
-
-    }
-    
-    else{
+    } else {
         echo json_encode(
             array("message" => "No roleCat found.")
         );
-        mysqli_close($category);
+        // mysqli_close($category);
     }
-?>
