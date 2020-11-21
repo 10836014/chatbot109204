@@ -62,6 +62,5 @@ if ($num > 0) {
     echo json_encode($chatrooms_arr);
 } else {
     echo json_encode(['message' => 'No chatrooms found.']);
-    mysqli_close($chatroom);
+    // mysqli_close($chatroom);
 }
-?>
