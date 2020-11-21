@@ -32,7 +32,7 @@ if (!mysqli_query($con, $sql)) {
     echo json_encode([
         'result' => '0',
         'data' => '添加成功',
-        'return chatroom_id: ' => $con->insert_id,
+        'chatroom_id' => $con->insert_id,
     ]);
 }
 mysqli_close($con);
