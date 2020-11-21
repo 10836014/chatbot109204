@@ -1,5 +1,6 @@
 <?php
-class chatroom{
+class chatroom
+{
  
     // database connection and table name
     private $conn;
@@ -26,11 +27,13 @@ class chatroom{
 
     
     // constructor with $db as database connection
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
-    function readChatRoom(){
+    public function readChatRoom()
+    {
     
         // select all query
         $query = "SELECT * FROM chatrooms ";
@@ -45,10 +48,11 @@ class chatroom{
         return $stmt;
     }
 
-    function selectChatroomId(){
+    public function selectChatroomId()
+    {
     
         // select all query
-        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";
+        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ORDER BY chatroom_id DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -60,7 +64,8 @@ class chatroom{
         return $stmt;
     }
 
-    function readCompletion(){
+    public function readCompletion()
+    {
     
         // select all query
         $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' AND habbit_status='養成中' ";
@@ -75,7 +80,8 @@ class chatroom{
         return $stmt;
     }
 
-    function getUserHistory(){
+    public function getUserHistory()
+    {
     
         // select all query
         $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";
@@ -90,4 +96,3 @@ class chatroom{
         return $stmt;
     }
 }
-?>
