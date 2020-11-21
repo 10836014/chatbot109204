@@ -7,12 +7,14 @@
       exit();
     } 
     
-    $sql = "SELECT * FROM `chatrooms`";
-    $result = mysqli_query($con, $sql);
+    // $sql = "SELECT * FROM `chatrooms`";
+    $query = "SELECT completion FROM `chatrooms` WHERE chatroom_id='1' ";
+    $result = mysqli_query($con, $query);
     // var_dump($result);
     
     // Fetch all
-    echo json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
+    echo json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC),false);
+    // echo json_encode($result);
     
     // Free result set
     // echo json_encode(mysqli_free_result($result));
