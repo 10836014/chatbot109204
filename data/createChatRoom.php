@@ -18,7 +18,7 @@ $sql = "INSERT INTO chatrooms (user_id, habbit_id,
         ('$_POST[user_id]', '$_POST[habbit_id]',
         '$_POST[habbit_name]', '養成中', '$_POST[signed_time]',
         '$_POST[original_intention]','$_POST[goodness]',
-        '$_POST[badness]', '$_POST[days]')";
+        '$_POST[badness]', '0')";
 
 if (!mysqli_query($con, $sql)) {
     //die 'Error: ' . mysqli_error($con);
