@@ -8,9 +8,9 @@
     }
 
     // 取得劇本資料
-    $script = "SELECT * FROM notice ORDER BY sequence ASC, id ASC LIMIT 1";
+    $script = "SELECT * FROM joke ORDER BY sequence ASC, id ASC LIMIT 1";
     // 用來測試句型回傳對不對(直接指定type)
-    // $script = "SELECT * FROM notice WHERE type = 3 ORDER BY sequence ASC, id ASC LIMIT 1";
+    // $script = "SELECT * FROM joke WHERE type = 3 ORDER BY sequence ASC, id ASC LIMIT 1";
     $script_sql = mysqli_query($con, $script);
     $script_result = mysqli_fetch_all($script_sql, MYSQLI_ASSOC);
     // 取得劇本回傳欄位
