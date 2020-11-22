@@ -40,6 +40,7 @@ if ($num > 0) {
             'role_id' => $role_id,
             'role_name' => $role_name,
             'role_photo' => 'http://140.131.114.140/chatbot109204/upload/'.$role_photo,
+            // 'role_photo' => 'http://localhost/chatbot109204/upload/'.$role_photo,
             'habbit_id' => $habbit_id,
             'habbit_name' => $habbit_name,
             'habbit_status' => $habbit_status,
