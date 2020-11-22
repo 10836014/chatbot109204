@@ -34,7 +34,7 @@
         echo json_encode($user_item);
     } else {
         echo json_encode(
-            array("message" => "該使用者沒有養成中的習慣 habbit_status為養成中")
+            array("message" => "請傳入正確的user_id")
         );
         // mysqli_close($user);
     }
