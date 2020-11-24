@@ -8,7 +8,8 @@
     }
 
     // 取得劇本資料
-    $script = "SELECT * FROM chitchat ORDER BY sequence ASC, id ASC LIMIT 1";
+    // $script = "SELECT * FROM chitchat ORDER BY sequence ASC, id ASC LIMIT 1";
+    $script = "SELECT * FROM chitchat ORDER BY RAND() LIMIT 1";
     // 用來測試句型回傳對不對(直接指定type)
     // $script = "SELECT * FROM notice WHERE type = 3 ORDER BY sequence ASC, id ASC LIMIT 1";
     if (!mysqli_query($con, $script)) {
