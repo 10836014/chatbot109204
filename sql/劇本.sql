@@ -41,10 +41,10 @@ INSERT INTO `chitchat` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_a
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `joke`
+-- 資料表結構 `praise`
 --
 
-CREATE TABLE `joke` (
+CREATE TABLE `praise` (
   `id` int(11) NOT NULL,
   `type` tinyint(4) NOT NULL,
   `phase1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE `joke` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- 傾印資料表的資料 `joke`
+-- 傾印資料表的資料 `praise`
 --
 
-INSERT INTO `joke` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_at`, `updated_at`) VALUES
+INSERT INTO `praise` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_at`, `updated_at`) VALUES
 (1, 5, '金猴金厲害', '', 2, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
 (2, 5, '唉呦~不錯嘛~', '', 1, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
 (3, 5, '太棒了！繼續加油！', '', 1, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
@@ -138,10 +138,10 @@ INSERT INTO `notice` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_at`
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `praise`
+-- 資料表結構 `joke`
 --
 
-CREATE TABLE `praise` (
+CREATE TABLE `joke` (
   `id` int(11) NOT NULL,
   `type` tinyint(4) NOT NULL,
   `phase1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -152,10 +152,10 @@ CREATE TABLE `praise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- 傾印資料表的資料 `praise`
+-- 傾印資料表的資料 `joke`
 --
 
-INSERT INTO `praise` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_at`, `updated_at`) VALUES
+INSERT INTO `joke` (`id`, `type`, `phase1`, `phase2`, `sequence`, `created_at`, `updated_at`) VALUES
 (1, 5, '當我眼睛閉上時 我就看不到', '', 2, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
 (2, 5, '台灣人在睡覺的時候 美國人都在工作', '', 1, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
 (3, 5, '研究顯示，過越多生日的人越長壽', '', 1, '2020-11-17 05:52:00', '2020-11-17 05:52:00'),
