@@ -84,7 +84,7 @@ class chatroom
     {
     
         // select all query
-        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' ";
+        $query="SELECT * FROM `chatrooms` WHERE user_id='$_POST[user_id]' order by chatroom_id DESC ";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
