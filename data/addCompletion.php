@@ -11,11 +11,11 @@
     $selected = mysqli_select_db($con, "chatbot");
 
     $sql="UPDATE chatrooms SET completion= completion +1 , days=days +1
-        WHERE user_id='$_POST[user_id]' AND chatroom_id='$_POST[chatroom_id]' ";
+        WHERE chatroom_id='$_POST[chatroom_id]' ";
     
     // mysqli_query($con,$sql);
 
-    $chatroom = "SELECT * FROM chatrooms where chatroom_id= '$_POST[chatroom_id]' AND user_id = '$_POST[user_id]'";
+    $chatroom = "SELECT * FROM chatrooms where chatroom_id= '$_POST[chatroom_id]'";
 
     $chatroom_sql = mysqli_query($con, $chatroom);
     $chatroom_result = mysqli_fetch_all($chatroom_sql, MYSQLI_ASSOC);
