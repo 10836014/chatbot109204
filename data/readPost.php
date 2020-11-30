@@ -41,6 +41,7 @@ if ($num > 0) {
             'user_id' => $user_id,
             'user_name' => $user_name,
             // "title" => $title,
+            'post_photo' => $post_photo,
             'content' => $content,
             'created_at' => $created_at,
             'updated_at' => $updated_at,

@@ -40,6 +40,7 @@ if ($num > 0) {
             'habbit_cat_name' => $habbit_cat_name,
             'user_id' => $user_id,
             'user_name' => $user_name,
+            'post_photo' => 'http://140.131.114.140/chatbot109204/upload/'.$post_photo,
             // "title" => $title,
             'content' => $content,
             'created_at' => $created_at,

@@ -245,6 +245,7 @@ CREATE TABLE `posts` (
   `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `habbit_id` int(11) NOT NULL,
   `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '貼文內容',
+  `post_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '貼文的照片',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

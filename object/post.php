@@ -10,6 +10,7 @@ class Post
     public $user_id;
     public $title;
     public $content;
+    public $post_photo;
     public $created_at;
     public $updated_at;
 
@@ -19,7 +20,7 @@ class Post
         $this->conn = $db;
     }
 
-    function readPost()
+    public function readPost()
     {
         // $query = "SELECT * FROM posts";
 
@@ -36,7 +37,7 @@ class Post
         return $stmt;
     }
 
-    function getUserPost()
+    public function getUserPost()
     {
         // select all query
         // $query = "SELECT * FROM posts";
@@ -55,7 +56,7 @@ class Post
         return $stmt;
     }
 
-    function countLikes()
+    public function countLikes()
     {
         // select all query
         // $query = "SELECT * FROM posts";
@@ -82,7 +83,7 @@ class Post
         return $stmt;
     }
 
-    function getHabbitPosts()
+    public function getHabbitPosts()
     {
         $query = "SELECT p.*, u.user_name, h.habbit_id, h.habbit_cat_name, count(l.post_id) AS likesNum
         FROM posts AS p 
@@ -107,4 +108,3 @@ class Post
         return $stmt;
     }
 }
-?>

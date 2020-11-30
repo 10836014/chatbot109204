@@ -40,6 +40,7 @@ if ($num > 0) {
             'user_id' => $user_id,
             'user_name' => $user_name,
             'content' => $content,
+            'post_photo' => $post_photo,
             'created_at' => $created_at,
             'updated_at' => $updated_at,
             'likesNum' => $likesNum,
