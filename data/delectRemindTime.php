@@ -10,12 +10,12 @@
 
     $selected = mysqli_select_db($con, "chatbot");
 
-    $sql="DELETE FROM users WHERE user_id='$_POST[user_id]'";
+    $sql="DELETE FROM remind_time WHERE chatroom_id='$_POST[chatroom_id]'";
     
     if (!mysqli_query($con, $sql)) {
         //die 'Error: ' . mysqli_error($con);
-        echo json_encode(array('result' => '1', 'data' => '刪除chatrooms失敗', 'error' => mysqli_error($con)));
+        echo json_encode(array('result' => '1', 'data' => '刪除remind_time失敗', 'error' => mysqli_error($con)));
     } else {
-        echo json_encode(array('result' => '0', 'data' => '刪除chatrooms成功'));
+        echo json_encode(array('result' => '0', 'data' => '刪除remind_time成功'));
     }
     mysqli_close($con);

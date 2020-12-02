@@ -10,7 +10,7 @@
 
     $selected = mysqli_select_db($con, "chatbot");
 
-    $sql="DELETE FROM users WHERE user_id='$_POST[user_id]'";
+    $sql="DELETE FROM likes WHERE user_id='$_POST[user_id]'";
     
     if (!mysqli_query($con, $sql)) {
         //die 'Error: ' . mysqli_error($con);
