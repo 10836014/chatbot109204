@@ -67,9 +67,9 @@
             // var_dump($answer, $type);  // 很棒
 
             $rand_int = (random_int(1, 100));
-            $rand = $rand_int % 8 ;
+            $rand = $rand_int % 10 ;
             // $rand =1;
-            var_dump($rand);
+            // var_dump($rand);
             if ($rand == 0) {
                 echo json_encode([
                         'answer' => '不要再發懶了，快快去' . $habbit_name .'有我陪著你的！',
@@ -97,7 +97,7 @@
                     ]);
             } elseif ($rand == 5) {
                 echo json_encode([
-                        'answer' => '你一定可以的！已經累計養成' . $completion . '次好習慣囉',
+                        'answer' => $answer,
                         'type' => $rand
                     ]);
             } elseif ($rand == 6) {
@@ -107,7 +107,17 @@
                     ]);
             } elseif ($rand == 7) {
                 echo json_encode([
-                        'answer' => '再堅持一下，' . $goodness . '離你不遠了！',
+                        'answer' => $answer,
+                        'type' => $rand
+                    ]);
+            } elseif ($rand == 8) {
+                echo json_encode([
+                        'answer' => $answer,
+                        'type' => $rand
+                    ]);
+            } elseif ($rand == 9) {
+                echo json_encode([
+                        'answer' => $answer,
                         'type' => $rand
                     ]);
             } else {
