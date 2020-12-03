@@ -112,4 +112,21 @@ class chatroom
     
         return $stmt;
     }
+
+    public function getRoleName()
+    {
+    
+        // select all query
+        $query="SELECT * FROM `chatrooms` WHERE chatroom_id='$_POST[chatroom_id]'";
+        // $query="SELECT `user_name` FROM `users` WHERE user_id='$_POST[user_id]'";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // execute query
+        $stmt->execute();
+
+    
+        return $stmt;
+    }
 }
