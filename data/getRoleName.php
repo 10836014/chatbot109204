@@ -27,7 +27,7 @@
             extract($row);
     
             $user_item=array(
-                "$role_name" => $role_name
+                "role_name" => $role_name
             );
         }
         echo json_encode($user_item);
